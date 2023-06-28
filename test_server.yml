@@ -1,0 +1,19 @@
+---
+- name: Test server configuration
+  hosts: web_servers
+  gather_facts: False
+
+  tasks:
+    - name: Validate HTTP to HTTPS redirection
+      uri:
+        url: http://localhost/
+        return_content: yes
+      register: http_response
+      failed_when: "http_response.status != 301 or 'https://' not in http_response['redirected']"
+
+    - name: Validate HTTPS connection
+      uri:
+        url: https://localhost/
+        return_content: yes
+      register: https_response
+      failed_when: "https_response.status != 200 or '<h1>Hello World!</h1>' not in https_response['content']"

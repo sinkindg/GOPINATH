@@ -1,0 +1,32 @@
+To architect a scalable and secure static web application in AWS, we can follow the steps below:
+
+Set up an Amazon EC2 instance:
+
+Choose an appropriate EC2 instance type and size based on your application's requirements.
+Create a new EC2 instance and select the desired operating system (e.g., Amazon Linux).
+Configure security groups to allow inbound traffic only on necessary ports (e.g., SSH, HTTP, HTTPS).
+Install and configure a web server:
+
+Use a configuration management tool like Ansible, Puppet, or Chef to automate the installation and configuration of the web server.
+Install a web server software such as Nginx or Apache.
+Configure the web server to serve the static content (HTML page) by creating a site configuration file with appropriate settings.
+Secure the application and enable HTTPS:
+
+Generate a self-signed SSL/TLS certificate using OpenSSL or an automated tool like Let's Encrypt (if you prefer a trusted certificate).
+Configure the web server to use the generated SSL/TLS certificate for HTTPS.
+Redirect all HTTP requests to HTTPS by adding a server block or rewrite rule in the web server configuration.
+Automate the deployment and configuration:
+
+Use a configuration management tool (e.g., Ansible) to define the desired state of the server and automate the deployment process.
+Write Ansible playbooks or equivalent configuration files to install packages, copy configuration files, and start/restart the web server.
+Automated tests for server configuration:
+
+Write test cases to validate the correctness of the server configuration.
+Use a testing framework like Selenium, pytest, or a simple HTTP request library to perform tests.
+Examples of tests could include verifying the response status code, content validation, and checking the redirection from HTTP to HTTPS.
+Deploy the web application:
+
+Use the chosen configuration management tool (e.g., Ansible) to deploy the web application code to the server.
+Copy the HTML file to the appropriate location on the server.
+Restart the web server to make sure the changes take effect.
+By following these steps, you will have a scalable and secure static web application deployed in AWS. Remember to adjust the instructions based on your specific requirements and the configuration management tool of your choice.

@@ -1,0 +1,16 @@
+---
+- name: Deploy web application
+  hosts: web_servers
+  become: true
+
+  tasks:
+    - name: Copy HTML file
+      copy:
+        src: index.html
+        dest: /usr/share/nginx/html/
+      notify:
+        - Restart Nginx
+
+  handlers:
+    - name: Restart Nginx
+     
